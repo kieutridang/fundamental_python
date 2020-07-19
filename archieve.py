@@ -49,3 +49,103 @@ print("Ket qua la: %d" %(c + cc + ccc))
 # Bai 7
 a, b = map(eval, (input("Nhap so nguyen a va b: ").split(' ')))
 print("ket qua a luy thua b la: %d" %(a**b))
+
+# Bai 8
+width = eval(input("Nhap chieu dai day hinh chu nhat (cm)"))
+length = eval(input("Nhap chieu rong day hinh chu nhat (cm)"))
+height = eval(input("Nhap chieu cao hinh khoi chu nhat (cm)"))
+decimal = eval(input("So luong so le can hien thi"))
+
+print("Dien tich day hinh chu nhat la: %d" %(width * length))
+
+# Bai 10
+
+name, age = input("Nhap ten va tuoi theo thu tu: ").split(',')
+
+yearOfBirth = 2020 - int(age)
+yearOf100 = yearOfBirth + 100
+
+print("Nam ma %s tron 100 tuoi la: %d" %(name, yearOf100))
+
+# Bai 11
+
+remain = int(input("Nhap so tien X: "))
+money = remain
+type500 = 0
+type200 = 0
+type100 = 0
+type50 = 0
+type20 = 0
+type10 = 0
+type5 = 0
+type2 = 0
+type1 = 0
+
+type500 = remain / 500
+remain = remain % 500
+
+type200 = remain / 200
+remain = remain % 200
+
+type100 = remain / 100
+remain = remain % 100
+
+type50 = remain / 50
+remain = remain % 50
+
+type20 = remain / 20
+remain = remain % 20
+
+type10 = remain / 10
+remain = remain % 10
+
+type5 = remain / 5
+remain = remain % 5
+
+type2 = remain / 2
+remain = remain % 2
+
+type1 = remain / 1
+remain = remain % 1
+
+
+print("""
+    So tien %d duoc doi thanh:
+    Loai 500 gom %d to
+    Loai 200 gom %d to
+    Loai 100 gom %d to
+    Loai 50 gom %d to
+    Loai 20 gom %d to
+    Loai 10 gom %d to
+    Loai 5 gom %d to
+    Loai 2 gom %d to
+    Loai 1 gom %d to
+""" %(money, type500, type200, type100, type50, type20, type10, type5, type2, type1))
+
+# Bai 13
+intNumber = int(input("Nhap so nguyen: "))
+
+if intNumber % 2 == 0:
+    print("Day la so chan")
+else:
+    print("Day la so le")
+
+print("===================")
+print("Mo rong 1:")
+
+if intNumber % 4 == 0:
+    print("Day la so chia het cho 4")
+elif intNumber % 2 == 0:
+    print("Day la so chia het cho 2")
+else:
+    print("Day la so le")
+
+print("===================")
+print("Mo rong 2:")
+
+soBiChia, soChia = map(int, input("Nhap so bi chia va so chia: ").split(','))
+
+if soBiChia % soChia == 0:
+    print("{} chia het cho {}".format(soBiChia, soChia))
+else:
+    print("{} khong chia het cho {}".format(soBiChia, soChia))
