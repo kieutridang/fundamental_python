@@ -227,3 +227,34 @@ elif score > 0:
     print("Xep loai E")
 else:
     print("Khong nhan gia tri nay.")
+
+# Bai 17
+a, b = map(int, input("Nhap so nguyen a va b: ").split(" "))
+print("{}.x + {} = 0".format(a, b))
+
+if a == 0 and b != 0:
+    print("Phuong trinh vo nghiem")
+elif a == 0 and b == 0:
+    print("Phuong trinh vo so nghiem")
+else:
+    print("Nghiem cua phuong trinh la: x = {}".format(-b / a))
+
+# Bai 18
+import math
+
+a, b, c = map(float, input("Nhap so nguyen a, b va c: ").split(","))
+print("{}.x^2 + {}.x + {} = 0".format(a, b, c))
+
+delta = b**2 - 4*a*c
+if (delta < 0):
+    print(delta)
+    print("Phuong trinh vo nghiem")
+else:
+    x1 = (-b + math.sqrt(delta)) / (2*a)
+    x2 = (-b - math.sqrt(delta)) / (2*a)
+
+    print("""
+    Nghiem cua phuong trinh la:
+    x1 = {}
+    x2 = {}
+    """.format(x1, x2))
