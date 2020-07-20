@@ -1,11 +1,11 @@
-# Bai 23
-a, b = map(int, input("Nhap 2 so nguyen sao cho a < b: ").split(' '))
+#%%
+import matplotlib.pyplot as plt
+import matplotlib as mpl
+import numpy as np
 
-number = a
+x = np.linspace(0, 20, 100)
+plt.plot(x, np.sin(x))
+plt.show() 
 
-while number <= b:
-    if number % 3 == 0:
-        number += 1
-        continue
-    print("number = {}".format(number))
-    number += 1
+
+# %%

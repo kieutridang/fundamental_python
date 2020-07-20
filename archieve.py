@@ -258,3 +258,54 @@ else:
     x1 = {}
     x2 = {}
     """.format(x1, x2))
+
+# Bai 21
+import math
+class Point:
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+
+class Line:
+    def __init__(self, StartPoint, EndPoint):
+        self.StartPoint = StartPoint
+        self.EndPoint = EndPoint
+
+    def length(self):
+        HorizontalDistance = self.EndPoint.x - self.StartPoint.x
+        VerticalDistance = self.StartPoint.y - self.EndPoint.y
+        return math.sqrt(HorizontalDistance**2 + VerticalDistance**2)
+
+class Cycle:
+    def __init__(self, CenterPoint, Radius):
+        self.CenterPoint = CenterPoint
+        self.Radius = Radius
+
+A = Point(3, 2)
+B = Point(7, 8)
+
+CycleA = Cycle(A, 5)
+CycleB = Cycle(B, 7)
+
+L = Line(A, B)
+print("do dai 2 diem A va B: {}".format(L.length()))
+
+TotalRadius = CycleA.Radius + CycleB.Radius
+if TotalRadius < L.length():
+    print("2 duong tron nam ngoai nhau")
+elif TotalRadius > L.length():
+    print("2 duong tron cat nhau")
+elif TotalRadius == L.length():
+    print("2 duong trong giao nhau tai 1 diem")
+
+# Bai 23
+a, b = map(int, input("Nhap 2 so nguyen sao cho a < b: ").split(' '))
+
+number = a
+
+while number <= b:
+    if number % 3 == 0:
+        number += 1
+        continue
+    print("number = {}".format(number))
+    number += 1
