@@ -309,3 +309,26 @@ while number <= b:
         continue
     print("number = {}".format(number))
     number += 1
+
+# Bai 60
+poem = """     Quê hương
+Quê hương là   chùm khế   ngọt. 
+   Cho con trèo hái   mỗi  ngày   .
+Quê  hương là   đường  đi học .
+  Con về  rợp bướm  vàng bay .
+  Đỗ     Trung Quân    """
+
+
+def stripPoem(poem):
+    poem = poem.strip()
+    while poem.find("  ") > 0:
+        poem = poem.replace("  ", "")
+    while poem.find("\n ") > 0:
+        poem = poem.replace("\n ", "\n")
+    while poem.find(". ") > 0:
+        poem = poem.replace(". ", ".")
+    while poem.find(" .") > 0:
+        poem = poem.replace(" .", ".")
+    print(poem)
+
+stripPoem(poem)

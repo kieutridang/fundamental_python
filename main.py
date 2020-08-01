@@ -1,11 +1,27 @@
-#%%
-import matplotlib.pyplot as plt
-import matplotlib as mpl
-import numpy as np
+# Bai 61
+originString = input("Input a string please: ")
 
-x = np.linspace(0, 20, 100)
-plt.plot(x, np.sin(x))
-plt.show() 
+# Cach 1
+i = 0
+result = True
+while (i < len(originString)):
+    reversedIndex = -i - 1
+    if originString[i] != originString[reversedIndex]:
+        print("originString[i]", originString[i])
+        print("originString[reversedIndex]", originString[reversedIndex])
+        result = False
+    i += 1
 
+if result == True:
+    print("palindrome")
+else:
+    print("un-palindrome")
 
-# %%
+# Cach 2
+reversedString = originString[::-1]
+
+if (originString == reversedString):
+    print("palindrome cach 2")
+else:
+    print("un-palindrome cach 2")
+
