@@ -1,27 +1,61 @@
-# Bai 61
-originString = input("Input a string please: ")
+from random import *
 
-# Cach 1
-i = 0
-result = True
-while (i < len(originString)):
-    reversedIndex = -i - 1
-    if originString[i] != originString[reversedIndex]:
-        print("originString[i]", originString[i])
-        print("originString[reversedIndex]", originString[reversedIndex])
-        result = False
-    i += 1
+def input_number():
+    while True:
+        n = input('Please input n as an integer: ')
+        if n.isnumeric() == False:
+            print("Only accept integer")
+            continue
+        else:
+            break
+    return int(n)
 
-if result == True:
-    print("palindrome")
-else:
-    print("un-palindrome")
+def create_list_to_n(n):
+    myList = []
+    for i in range (n):
+        myList.append(randint(0, 101))
+    return myList
 
-# Cach 2
-reversedString = originString[::-1]
+def print_list(myList):
+    for item in myList:
+        print(item)
 
-if (originString == reversedString):
-    print("palindrome cach 2")
-else:
-    print("un-palindrome cach 2")
+def print_prime_list(myList):
+    for item in myList:
+        if check_prime(item) == False:
+            print("{} is not prime number".format(item))
+        else:
+            print("{} is prime number".format(item))
 
+def check_prime(n):
+    if n <= 3:
+        return True
+    elif n % 2 == 0 or n % 3 == 0:
+        return False
+    i = 5
+    while i * i <= n:
+        if n % i == 0 or n % (i + 2) == 0:
+            return False
+        i = i + 6
+    return True
+    
+
+def check_lucky_number(n):
+    strN = str(n)
+    for char in strN:
+        if char != '8' and char != '6':
+            return False
+    return True
+
+def print_lucky_number(myList):
+    for item in myList:
+        if check_lucky_number(item) == False:
+            print("{} is not lucky number".format(item))
+        else:
+            print("{} is lucky number".format(item))
+
+number = input_number()
+myList = create_list_to_n(number)
+print_prime_list(myList)
+print("-------------")
+print_lucky_number(myList)

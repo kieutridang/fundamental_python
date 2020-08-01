@@ -332,3 +332,43 @@ def stripPoem(poem):
     print(poem)
 
 stripPoem(poem)
+
+# Bai 61
+originString = input("Input a string please: ")
+
+# Cach 1
+i = 0
+result = True
+while (i < len(originString)):
+    reversedIndex = -i - 1
+    if originString[i] != originString[reversedIndex]:
+        print("originString[i]", originString[i])
+        print("originString[reversedIndex]", originString[reversedIndex])
+        result = False
+    i += 1
+
+if result == True:
+    print("palindrome")
+else:
+    print("un-palindrome")
+
+# Cach 2
+reversedString = originString[::-1]
+
+if (originString == reversedString):
+    print("palindrome cach 2")
+else:
+    print("un-palindrome cach 2")
+
+# Bai 91
+
+from datetime import *
+print("Ngày giờ hiện tại: " , datetime.now())
+print("Năm hiện tại: ", date.today().strftime("%Y"))
+print("Tháng hiện tại bằng chữ: ", date.today().strftime("%b"))
+print("Tuần hiện tại là tuần thứ mấy trong năm:", date.today().strftime("%W"))
+print("Ngày hiện tại là ngày thứ mấy trong năm: ", date.today().strftime("%j"))
+print("Ngày dương lịch hiện tại là ngày: ", date.today().strftime("%d"))
+print("Thứ của ngày hiện tại: ", date.today().strftime("%A"))
+print("Ba Thứ của ngày hiện tại: ", date.today().strftime("%a"))
+print("Giờ phút giây hiện tại: ", datetime.now().time().strftime("%X"))
