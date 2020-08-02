@@ -1,61 +1,25 @@
-from random import *
-
-def input_number():
+# Bai 71
+def create_n_numbers():
+    aList = []
     while True:
-        n = input('Please input n as an integer: ')
-        if n.isnumeric() == False:
-            print("Only accept integer")
-            continue
-        else:
+        number = input("Input a number please: ")
+        aList.append(number)
+        answer = input("Input more?")
+        if answer.upper() == "N":
             break
-    return int(n)
+    return aList
 
-def create_list_to_n(n):
-    myList = []
-    for i in range (n):
-        myList.append(randint(0, 101))
-    return myList
+def convert_list_to_set(aList):
+    return set(aList)
 
-def print_list(myList):
-    for item in myList:
-        print(item)
+def sum_set(set):
+    result = 0
+    for number in set:
+        result += int(number)
+    return result
 
-def print_prime_list(myList):
-    for item in myList:
-        if check_prime(item) == False:
-            print("{} is not prime number".format(item))
-        else:
-            print("{} is prime number".format(item))
+aList = create_n_numbers()
+aSet = convert_list_to_set(aList)
+result = sum_set(aSet)
 
-def check_prime(n):
-    if n <= 3:
-        return True
-    elif n % 2 == 0 or n % 3 == 0:
-        return False
-    i = 5
-    while i * i <= n:
-        if n % i == 0 or n % (i + 2) == 0:
-            return False
-        i = i + 6
-    return True
-    
-
-def check_lucky_number(n):
-    strN = str(n)
-    for char in strN:
-        if char != '8' and char != '6':
-            return False
-    return True
-
-def print_lucky_number(myList):
-    for item in myList:
-        if check_lucky_number(item) == False:
-            print("{} is not lucky number".format(item))
-        else:
-            print("{} is lucky number".format(item))
-
-number = input_number()
-myList = create_list_to_n(number)
-print_prime_list(myList)
-print("-------------")
-print_lucky_number(myList)
+print(result)
