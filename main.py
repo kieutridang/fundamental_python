@@ -31,8 +31,44 @@ def write_file(filename, n):
 def read_file(filename):
     with open(filename, mode = 'r', encoding = 'utf-8') as file:
         content = file.read()
-    print("content: {}".format(content))
+    return content
+
+#(iv)
+def sum(filename):
+    sum = 0
+    content = read_file(filename).strip()
+    numbers = content.split(' ')
+    for number in numbers:
+        sum += int(number)
+    return sum
+
+#(v)
+def list_out_prime_numbers(filename):
+    prime_numbers = []
+    content = read_file(filename)
+    numbers_as_string = content.strip().split(' ')
+    for number_as_string in numbers_as_string:
+        is_prime_number = int(number_as_string) > 0 and check_prime(int(number_as_string))
+        if is_prime_number:
+            prime_numbers.append(int(number_as_string))
+    return prime_numbers
+
+def check_prime(n):
+    if n <= 3:
+        return True
+    elif n % 2 == 0 or n % 3 == 0:
+        return False
+    i = 5
+    while i * i <= n:
+        if n % i == 0 or n % (i + 2) == 0:
+            return False
+        i = i + 6
+    return True
 
 n = input_n()
 write_file("./Number.txt", n)
 read_file("./Number.txt")
+
+print("sum: {}".format(sum("./Number.txt")))
+
+print("prime numbers: {}".format(list_out_prime_numbers("./Number.txt")))
