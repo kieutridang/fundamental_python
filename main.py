@@ -1,40 +1,38 @@
-# Bai 71
-def create_n_numbers():
-    aList = []
-    while True:
-        number = input("Input a number please: ")
-        aList.append(number)
-        answer = input("Input more?")
-        if answer.upper() == "N":
-            break
-    return aList
+# Bai 3.1.3 > 9
 
-def convert_list_to_set(aList):
-    return set(aList)
+#(i)
+from random import randint
 
-def sum_set(set):
-    result = 0
-    for number in set:
-        result += int(number)
-    return result
+def input_n():
+    try:
+        enter_number = int(input("Please input a number between 2 and 200: "))
+        if 2 <= enter_number <= 200:
+            return enter_number
+    except:
+        print("Only integer between 2 and 200 allowed")
 
-aList = create_n_numbers()
-aSet = convert_list_to_set(aList)
-result = sum_set(aSet)
+#(ii)
+def write_file(filename, n):
+    try:
+        i = 0
+        numbers = ''
+        while i < n:
+            number = randint(-9, 200)
+            numbers += ' ' + str(number)
+            i += 1
+        with open(filename, mode = 'w+', encoding = 'utf-8') as file:
+            file.write(numbers)
+    except:
+        print("Something went wrong when writing to the file")
+    finally:
+        file.close()
 
-print(result)
-# Bai 72
+#(iii)
+def read_file(filename):
+    with open(filename, mode = 'r', encoding = 'utf-8') as file:
+        content = file.read()
+    print("content: {}".format(content))
 
-import string
-#Cách 1: tự khai báo set
-alphabet = set(['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'])
-#Cách 2: tạo set bằng thuộc tính ascii_lowercase trong module string
-#alphabet = set(string.ascii_lowercase)
-print(alphabet)
-#kết quả =True vì S chưa đầy đủ các ký tự từ a-z
-S = 'The quick brown fox jumps over the lazy dog'
-#sử dụng toán tử >= vì S có chứa ký tự khoảng trắng (' ')
-print(set(S.lower()) >= alphabet)
-#kết quả =False vì S thiếu 2 ký tự d và g
-S = 'The quick brown fox jumps over the lazy cat'
-print(set(S.lower()) >= alphabet)
+n = input_n()
+write_file("./Number.txt", n)
+read_file("./Number.txt")
